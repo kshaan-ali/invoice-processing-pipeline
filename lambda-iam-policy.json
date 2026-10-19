@@ -1,0 +1,59 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "CloudWatchLogs",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "arn:aws:logs:*:*:*"
+        },
+        {
+            "Sid": "S3ReadWrite",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::textract-ml-ai-*",
+                "arn:aws:s3:::textract-ml-ai-*/*",
+                "arn:aws:s3:::textract-processed-invoices",
+                "arn:aws:s3:::textract-processed-invoices/*"
+            ]
+        },
+        {
+            "Sid": "S3HeadBucket",
+            "Effect": "Allow",
+            "Action": "s3:ListBucket",
+            "Resource": "arn:aws:s3:::*"
+        },
+        {
+            "Sid": "TextractAnalyzeExpense",
+            "Effect": "Allow",
+            "Action": "textract:AnalyzeExpense",
+            "Resource": "*"
+        },
+        {
+            "Sid": "BedrockInvokeModel",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:InvokeModel"
+            ],
+            "Resource": [
+                "arn:aws:bedrock:*::foundation-model/amazon.nova-micro-v1:0",
+                "arn:aws:bedrock:*:*:inference-profile/eu.amazon.nova-micro-v1:0"
+            ]
+        },
+        {
+            "Sid": "DynamoDBPutItem",
+            "Effect": "Allow",
+            "Action": "dynamodb:PutItem",
+            "Resource": "arn:aws:dynamodb:*:*:table/invoices"
+        }
+    ]
+}

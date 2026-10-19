@@ -1,0 +1,9 @@
+# Dependencies for the local helper scripts (setup_s3_bucket.py,
+# upload_invoices.py) and the Streamlit dashboard (dashboard.py).
+# Note: the AWS Lambda runtime already includes boto3, so boto3 is only
+# needed locally, not for deploying lambda_function.py.
+boto3>=1.34.0
+
+# Streamlit dashboard (dashboard.py)
+streamlit>=1.30.0
+pandas>=2.0.0

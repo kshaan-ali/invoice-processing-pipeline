@@ -1,0 +1,25 @@
+
+Replace the default code in Lambda Function entirely with the code file and select the Deploy.
+
+In DynamoDB Type invoices in the Table name field
+
+Type invoice_id in the Partition key field and leave every thing default create table.
+
+Create two S3 Buckets One For textract-ml-ai-
+
+Keep the S3 bucket empty. Select Properties Tab. Scroll down for Event notifications
+
+Create event notification, in the General configuration, type invoice_processing in the Event name field
+
+	17	In the Event types section, select only the checkbox labeled Put.
+In the Destination box, expand the Lambda function dropdown and choose the invoice_processing function & save changes.
+
+Now Upload One By One Two Learn How event is triggered by Put command.
+
+In the top right of the DynamoDB Check for invoices table page, select the Explore table items.
+
+
+Now explore the invoice data including line_items and llm_analysis. 
+At this point you have everything stored and well structured. Read carefully the LLM analysis
+
+Check the s3 results folder.
